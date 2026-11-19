@@ -8,7 +8,9 @@
       localStorage.setItem(KEY, next);
     } catch (_) {}
     document.querySelectorAll(".lang button").forEach(function (btn) {
-      btn.classList.toggle("active", btn.getAttribute("data-lang") === next);
+      var selected = btn.getAttribute("data-lang") === next;
+      btn.classList.toggle("active", selected);
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
     });
   }
 
